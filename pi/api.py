@@ -1,5 +1,5 @@
-from pi.record import record_audio
-from pi.voice import exchange_audio, switch_personality
+from .record import record_audio
+from .voice import exchange_audio, switch_personality
 
 # Main loop
 def main():

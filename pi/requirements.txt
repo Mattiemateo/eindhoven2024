@@ -1,4 +1,0 @@
-pyserial
-pyaudio
-pygame
-paramiko
