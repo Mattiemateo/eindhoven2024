@@ -1,7 +1,7 @@
 import serial
 
-from .record import record_audio
-from .voice import exchange_audio
+from record import record_audio
+from voice import exchange_audio
 
 def main():
     global recording

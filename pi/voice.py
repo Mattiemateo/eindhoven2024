@@ -1,7 +1,7 @@
 import requests
 from pydub.playback import play
 
-from .audio import convert_mp3_to_wav, play_audio
+from audio import convert_mp3_to_wav, play_audio
 
 API_URL = "http://192.168.3.234:5000"
 
