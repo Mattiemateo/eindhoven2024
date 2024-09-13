@@ -1,9 +1,9 @@
 import wave
 import pyaudio
-from pydub.playback import play
+import time
 
 # Function to record audio
-def record_audio(output_filename, record_seconds=15):
+def record_audio(output_filename, timeout=7):
     FORMAT = pyaudio.paInt16  # 16-bit resolution
     CHANNELS = 1              # Stereo channel (adjust if using mono)
     RATE = 44100              # 44.1kHz sampling rate
@@ -11,6 +11,9 @@ def record_audio(output_filename, record_seconds=15):
 
     # Initialize PyAudio object
     audio = pyaudio.PyAudio()
+
+    start_time = time.time()
+    current_time = time.time()
 
     try:
         # Start recording
@@ -21,10 +24,12 @@ def record_audio(output_filename, record_seconds=15):
         frames = []
 
         # Record for the specified duration
-        for _ in range(int(RATE / CHUNK * record_seconds)):
+        while (current_time - start_time) < timeout * 1000:
             try:
                 data = stream.read(CHUNK, exception_on_overflow=False)
                 frames.append(data)
+                current_time = time.time()
+
             except IOError as e:
                 print(f"Error recording audio: {e}")
                 break
