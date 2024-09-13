@@ -4,10 +4,10 @@ from pydub.playback import play
 
 # Function to record audio
 def record_audio(output_filename, record_seconds=15):
-    FORMAT = pyaudio.paInt8  # 8-bit resolution
+    FORMAT = pyaudio.paInt16  # 16-bit resolution
     CHANNELS = 1              # Stereo channel (adjust if using mono)
     RATE = 44100              # 44.1kHz sampling rate
-    CHUNK = 2048              # Increase chunk size to help with overflow issues
+    CHUNK = 1024              # Increase chunk size to help with overflow issues
 
     # Initialize PyAudio object
     audio = pyaudio.PyAudio()
