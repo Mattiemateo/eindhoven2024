@@ -1,0 +1,4 @@
+pyserial
+pyaudio
+pygame
+paramiko
