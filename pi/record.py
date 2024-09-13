@@ -24,7 +24,7 @@ def record_audio(output_filename, timeout=7):
         frames = []
 
         # Record for the specified duration
-        while (current_time - start_time) < timeout * 1000:
+        while (current_time - start_time) < timeout:
             try:
                 data = stream.read(CHUNK, exception_on_overflow=False)
                 frames.append(data)
